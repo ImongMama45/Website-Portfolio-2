@@ -154,11 +154,10 @@ STORAGES = {
     },
 }
 
-WHITENOISE_MANIFEST_STRICT = False
-
 if not DEBUG:
     # Production Media/Static configuration
     STORAGES["staticfiles"]["BACKEND"] = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+    STORAGES["staticfiles"]["OPTIONS"] = {"manifest_strict": False}
     STORAGES["default"]["BACKEND"] = "cloudinary_storage.storage.MediaCloudinaryStorage"
     CLOUDINARY_STORAGE = {
         'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME', 'your_cloud_name'),
