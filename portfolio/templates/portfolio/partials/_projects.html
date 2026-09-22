@@ -1,0 +1,34 @@
+{% load static %}
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="project-slider">
+    <button class="project-scroll-btn project-left-btn" aria-label="Scroll Left">&lt;</button>
+    <div class="slider-wrapper">
+      <div class="projects-samples">
+        {% for project in projects %}
+        <div class="projeckko">
+          {% if project.image %}
+          <img src="{{ project.image.url }}" alt="{{ project.title }}">
+          {% endif %}
+          <p>{{ project.title }}</p>
+          {% if project.role %}
+          <p class="project-role" style="color: var(--accent-color); font-size: 0.9rem; margin-bottom: 5px;"><strong>Role:</strong> {{ project.role }}</p>
+          {% endif %}
+          {% if project.tech_stack %}
+          <p class="project-tech" style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 10px;"><strong>Stack:</strong> {{ project.tech_stack }}</p>
+          {% endif %}
+          {% if project.description %}
+          <p class="project-desc">{{ project.description }}</p>
+          {% endif %}
+          {% if project.url_link %}
+          <a href="{{ project.url_link }}">View</a>
+          {% endif %}
+        </div>
+        {% empty %}
+        <p>No projects added yet.</p>
+        {% endfor %}
+      </div>
+    </div>
+    <button class="project-scroll-btn project-right-btn" aria-label="Scroll Right">&gt;</button>
+  </div>
+</section>

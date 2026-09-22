@@ -1,0 +1,8 @@
+django>=5.0
+pillow
+django-cloudinary-storage
+cloudinary
+gunicorn
+psycopg2-binary
+dj-database-url
+whitenoise

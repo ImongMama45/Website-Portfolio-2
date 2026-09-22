@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Quert Russel Lalisan | Full-Stack Developer{% endblock %}</title>
+  <meta name="description" content="Portfolio of Quert Russel Lalisan, a full-stack developer specializing in Django and React. Open for freelance, internships, and junior roles.">
+  <meta property="og:title" content="Quert Russel Lalisan | Full-Stack Developer">
+  <meta property="og:description" content="Portfolio of Quert Russel Lalisan, a full-stack developer specializing in Django and React.">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" href="{% static 'portfolio/images/logo.png' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'portfolio/css/style.css' %}">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <header>
+    <nav>
+      <ul class="navbar">
+        <li class="logo"><a href="#">
+          <svg width="36" height="36" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" style="display: block; transition: transform 0.3s ease;">
+            <rect width="36" height="36" rx="10" fill="var(--accent-color)" fill-opacity="0.1" stroke="var(--accent-color)" stroke-width="2"/>
+            <text x="50%" y="54%" font-family="var(--font-heading)" font-weight="700" font-size="20" fill="var(--accent-color)" text-anchor="middle" dominant-baseline="middle">Q</text>
+          </svg>
+        </a></li>
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="hamburger">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </label>
+        <span class="menu">
+          <li><a href="#hero" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </span>
+      </ul>
+    </nav>
+  </header>
+
+  {% block content %}{% endblock %}
+
+  <!-- Footer -->
+  <footer>
+    <ul class="social-links-horizontal">
+      <li class="social-links_item">
+        <a href="https://github.com/ImongMama45" class="social-links__flex" target="_blank" rel="noopener noreferrer">
+        <div class="icon social-links__icon">
+          <img src="{% static 'portfolio/images/github (1).png' %}" alt="GitHub Profile">
+        </div>
+        </a>
+      </li>
+      <li class="social-links_item">
+        <a href="https://www.facebook.com/KapengMalamegQvert/" class="social-links__flex" target="_blank" rel="noopener noreferrer">
+        <div class="icon social-links__icon">
+          <img src="{% static 'portfolio/images/facebook-new.png' %}" alt="Facebook Profile">
+        </div>
+        </a>
+      </li>
+      <li class="social-links_item">
+        <a href="https://www.instagram.com/kabutogan69/" class="social-links__flex" target="_blank" rel="noopener noreferrer">
+        <div class="icon social-links__icon">
+          <img src="{% static 'portfolio/images/instagram-new.png' %}" alt="Instagram Profile">
+        </div>
+        </a>
+      </li>
+    </ul>
+    <p>&copy; 2024 MyPortfolio. All rights reserved designed & coded by Quert.</p>
+  </footer>
+
+  <script src="{% static 'portfolio/js/script.js' %}"></script>
+</body>
+</html>

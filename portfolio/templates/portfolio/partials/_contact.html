@@ -1,0 +1,20 @@
+<section id="contact">
+  <h2>Let's Build Something Together</h2>
+  <p class="text" style="max-width: 600px; margin: 0 auto 30px;">I'm currently open to freelance work, internships, and collaboration opportunities. Whether you have a project in mind or just want to say hello, I'd love to hear from you — I typically respond within 1–2 business days.</p>
+  
+  {% if messages %}
+    <div class="messages" style="color: #4ade80; margin-bottom: 20px;">
+      {% for message in messages %}
+        <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  <form method="POST" action="{% url 'index' %}#contact" class="contact-form" style="display: flex; flex-direction: column; gap: 15px; max-width: 500px; width: 100%; margin: 0 auto;">
+    {% csrf_token %}
+    {{ form.name }}
+    {{ form.email }}
+    {{ form.message }}
+    <button type="submit" class="button" style="align-self: center; margin-top: 10px;">Send Message</button>
+  </form>
+</section>

@@ -1,0 +1,20 @@
+{% load static %}
+<section id="skills">
+  <h2>Skills / Expertise</h2>
+  <div class="skills-container">
+    <button class="scroll-btn left-btn" aria-label="Scroll Left">&lt;</button>
+    <div class="skills-scrollable">
+      {% for skill in skills %}
+      <div class="myskills"> 
+        {% if skill.icon %}
+        <img src="{{ skill.icon.url }}" alt="{{ skill.name }}"> 
+        {% endif %}
+        <div>{{ skill.name }}</div> 
+      </div>
+      {% empty %}
+      <p>No skills added yet.</p>
+      {% endfor %}
+    </div>
+    <button class="scroll-btn right-btn" aria-label="Scroll Right">&gt;</button>
+  </div>
+</section>
