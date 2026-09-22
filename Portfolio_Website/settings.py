@@ -137,6 +137,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.1/howto/static-files/
 
+# Email Configuration
+MAILERS = {
+    "default": {
+        "BACKEND": "django.core.mail.backends.smtp.EmailBackend" if not DEBUG else "django.core.mail.backends.console.EmailBackend",
+        "HOST": os.environ.get("EMAIL_HOST", "smtp.gmail.com"),
+        "PORT": int(os.environ.get("EMAIL_PORT", 587)),
+        "USE_TLS": os.environ.get("EMAIL_USE_TLS", "True") == "True",
+        "USER": os.environ.get("EMAIL_HOST_USER", ""),
+        "PASSWORD": os.environ.get("EMAIL_HOST_PASSWORD", ""),
+    }
+}
+DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER', '')
+
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
